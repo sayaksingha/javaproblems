@@ -1,0 +1,276 @@
+import java.util.Scanner;
+
+//import javax.lang.model.element.Element;
+public class Main {
+    public static void main(String[] args) {
+        Item TSHIR=new Item("TSHIRT","Clothing",1000,10);
+        Item JACKET =new Item("JACKET ","Clothing",2000,5);
+        Item CAP =new Item("CAP","Clothing",500,20);
+        Item NOTEBOOK =new Item("NOTEBOOK","Stationery",200,20);
+        Item PENS=new Item("PENS","Stationery",300,10);
+        Item MARKERS =new Item("MARKERS","Stationery",500,5);
+        boolean flag=true;
+        
+         Scanner sc=new Scanner(System.in);
+        
+        //input details
+        String product1="";
+        String product2="";
+        int amount1=0;
+        int amount2=0;
+        float total1=0;
+        float dis1=0;
+        float t1=0;
+        float d1=0;
+        float total2=0;
+       float dis2=0;
+        float t2=0;
+       float d2=0;
+       float count=0;
+        
+        while(flag){
+           if (count>1){
+            break;
+           }
+            System.out.print("ADD_ITEM ");
+            String[] product=sc.nextLine().toUpperCase().split(" ");
+            
+            
+            if(product[0].equals("TSHIRT") || product[0].equals("JACKET")||product[0].equals("CAP")){
+                product1=product[0];
+                amount1=Integer.parseInt(product[1]);
+                
+                if(amount1>2){
+                    System.out.println("ERROR_QUANTITY_EXCEEDED");
+                    product1="NULL";
+                }
+                else{
+                   System.out.println("ITEM_ADDED");
+                    switch(product1){
+            case "TSHIRT":
+               total1=Item.totalPrice(TSHIR,amount1);
+               dis1=Item.totalDiscount(TSHIR, amount1);
+               d1 +=dis1;
+                 t1+=total1;
+               break;
+            case "JACKET":
+               total1=Item.totalPrice(JACKET,amount1);
+               dis1=Item.totalDiscount(JACKET, amount1);
+               d1 +=dis1;
+                 t1+=total1;
+               break;
+            case "CAP":
+               total1=Item.totalPrice(CAP,amount1);
+               dis1=Item.totalDiscount(CAP, amount1);
+               d1 +=dis1;
+                 t1+=total1;
+               break;
+            case "NOTEBOOK":
+               total1=Item.totalPrice(NOTEBOOK,amount1);
+               dis1=Item.totalDiscount(NOTEBOOK, amount1);
+               d1 +=dis1;
+                 t1+=total1;
+               break;
+            case "PENS":
+               total1=Item.totalPrice(PENS,amount1);
+               dis1=Item.totalDiscount(PENS, amount1);
+               d1 +=dis1;
+                 t1+=total1;
+               break;   
+            case "MARKERS":
+               total1=Item.totalPrice(MARKERS,amount1);
+               dis1=Item.totalDiscount(MARKERS, amount1);
+               d1 +=dis1;
+               t1+=total1;
+               break;   
+        
+            }
+                   count++;
+                }
+            }
+           else if (product[0].equals("NOTEBOOK") || product[0].equals("MARKERS")||product[0].equals("PENS"))
+                {
+                product2=product[0];
+                amount2=Integer.parseInt(product[1]);
+                if(amount2>3){
+                    System.out.println("ERROR_QUANTITY_EXCEEDED");
+                }
+                else{
+                    System.out.println("ITEM_ADDED");
+                    switch(product2){
+                case "TSHIRT":
+                   total2=Item.totalPrice(TSHIR,amount2);
+                   dis2=Item.totalDiscount(TSHIR, amount2);
+                   d2 +=dis2;
+                   t2+= total2;
+                   break;
+                case "JACKET":
+                   total2=Item.totalPrice(JACKET,amount2);
+                   dis2=Item.totalDiscount(JACKET, amount2);
+                   d2 +=dis2;
+                   t2+= total2;
+                   break;
+                case "CAP":
+                   total2=Item.totalPrice(CAP,amount2);
+                   dis2=Item.totalDiscount(CAP, amount2);
+                   d2 +=dis2;
+                   t2+= total2;
+                   break;
+                case "NOTEBOOK":
+                   total2=Item.totalPrice(NOTEBOOK,amount2);
+                   dis2=Item.totalDiscount(NOTEBOOK, amount2);
+                   d2 +=dis2;
+                   t2+= total2;
+                   break;
+                case "PENS":
+                   total2=Item.totalPrice(PENS,amount2);
+                   dis2=Item.totalDiscount(PENS, amount2);
+                   d2 +=dis2;
+                   t2+= total2;
+                   break;   
+                case "MARKERS":
+                   total2=Item.totalPrice(MARKERS,amount2);
+                   dis2=Item.totalDiscount(MARKERS, amount2);
+                   d2 +=dis2;
+                   t2+= total2;
+                   break; 
+            
+                }
+                    count++;
+                 }
+            }
+            else{
+                System.out.println("retry");
+            }
+        
+        // switch(product1){
+        //     case "TSHIRT":
+        //       total1=Item.totalPrice(TSHIR,amount1);
+        //       dis1=Item.totalDiscount(TSHIR, amount1);
+        //       d1 +=dis1;
+        //          t1+=total1;
+        //       break;
+        //     case "JACKET":
+        //       total1=Item.totalPrice(JACKET,amount1);
+        //       dis1=Item.totalDiscount(JACKET, amount1);
+        //       d1 +=dis1;
+        //          t1+=total1;
+        //       break;
+        //     case "CAP":
+        //       total1=Item.totalPrice(CAP,amount1);
+        //       dis1=Item.totalDiscount(CAP, amount1);
+        //       d1 +=dis1;
+        //          t1+=total1;
+        //       break;
+        //     case "NOTEBOOK":
+        //       total1=Item.totalPrice(NOTEBOOK,amount1);
+        //       dis1=Item.totalDiscount(NOTEBOOK, amount1);
+        //       d1 +=dis1;
+        //          t1+=total1;
+        //       break;
+        //     case "PENS":
+        //       total1=Item.totalPrice(PENS,amount1);
+        //       dis1=Item.totalDiscount(PENS, amount1);
+        //       d1 +=dis1;
+        //          t1+=total1;
+        //       break;   
+        //     case "MARKERS":
+        //       total1=Item.totalPrice(MARKERS,amount1);
+        //       dis1=Item.totalDiscount(MARKERS, amount1);
+        //       d1 +=dis1;
+        //       t1+=total1;
+        //       break;   
+        
+        //     }
+            // switch(product2){
+            //     case "TSHIRT":
+            //       total2=Item.totalPrice(TSHIR,amount2);
+            //       dis2=Item.totalDiscount(TSHIR, amount2);
+            //       d2 +=dis2;
+            //       t2+= total2;
+            //       break;
+            //     case "JACKET":
+            //       total2=Item.totalPrice(JACKET,amount2);
+            //       dis2=Item.totalDiscount(JACKET, amount2);
+            //       d2 +=dis2;
+            //       t2+= total2;
+            //       break;
+            //     case "CAP":
+            //       total2=Item.totalPrice(CAP,amount2);
+            //       dis2=Item.totalDiscount(CAP, amount2);
+            //       d2 +=dis2;
+            //       t2+= total2;
+            //       break;
+            //     case "NOTEBOOK":
+            //       total2=Item.totalPrice(NOTEBOOK,amount2);
+            //       dis2=Item.totalDiscount(NOTEBOOK, amount2);
+            //       d2 +=dis2;
+            //       t2+= total2;
+            //       break;
+            //     case "PENS":
+            //       total2=Item.totalPrice(PENS,amount2);
+            //       dis2=Item.totalDiscount(PENS, amount2);
+            //       d2 +=dis2;
+            //       t2+= total2;
+            //       break;   
+            //     case "MARKERS":
+            //       total2=Item.totalPrice(MARKERS,amount2);
+            //       dis2=Item.totalDiscount(MARKERS, amount2);
+            //       d2 +=dis2;
+            //       t2+= total2;
+            //       break; 
+            
+            //     }
+                  
+                
+                
+        }
+            //  System.out.println("TOTAL_DISCOUNT 1 " +dis1);
+            //  System.out.println("TOTAL_DISCOUNT 2" +dis2);
+                 float dis=d1+d2;
+                float fu=(t1+t2);
+                 if(fu>3000){
+                  fu*=95/100;
+
+                  }
+                  if(fu>1000){
+                      fu=fu-dis;
+                  }
+                  else{
+                      dis=0;
+                  }
+                  
+                float f=fu/10;
+                fu=fu+f;
+            System.out.println("TOTAL_DISCOUNT " +dis);
+            System.out.println("TOTAL_AMOUNT_TO_PAY "+fu);
+        
+
+    }
+}
+
+class Item{
+    // item details
+    String product,catagory;
+   float price,discount;
+
+    public Item(String product, String catagory, float price, float discount) {
+        this.product = product;
+        this.catagory = catagory;
+        this.price = price;
+        this.discount = discount;
+    }
+
+    //calculation of price
+    static float totalPrice(Item a,float a1){
+        return a.price*a1;
+    }
+
+    // Discount calculation
+    static float totalDiscount(Item a,float a1){
+        float totalDis=(a.price*(a.discount/100)*a1);
+       
+        return totalDis;
+
+    }
+}
